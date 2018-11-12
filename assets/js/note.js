@@ -8,7 +8,8 @@ class Note {
     show() {
         if (sketchCanvas.width > sketchCanvas.height) {
             this.r = 400;
-        } else {
+        }
+        else {
             this.r = sketchCanvas.width * 0.8;
         }
         fill(this.color);
