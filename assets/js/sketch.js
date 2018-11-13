@@ -3,13 +3,12 @@ var width;
 var sketchCanvas;
 var pi = 3.14;
 
-var note_green = new Note([0, 255, 0], 0, 0, pi, 1.5*pi);
-var note_red = new Note([255, 0, 0], 0, 0, 1.5 * pi, 2 * pi);
-var note_blue = new Note([0, 0, 255], 0, 0, 2 * pi, 2.5 * pi);
-var note_yellow = new Note([255, 255, 0], 0, 0, 2.5 * pi, pi);
+var note_green = new Note();
+var note_red = new Note();
+var note_blue = new Note();
+var note_yellow = new Note();
 
 function setup() {
-    translate(width / 2, height / 2);
     /*Canvas creating*/
     canvas = document.getElementById('game-screen');
     width = canvas.offsetWidth;
@@ -17,7 +16,10 @@ function setup() {
     sketchCanvas.parent("game-screen");
     background(255, 255, 255, 100);
     /*SIMON NOTES*/
-    translate(width / 2, height / 2);
+    note_green = new Note([0, 255, 0], sketchCanvas.width / 2, 300, PI, 1.5 * PI);
+    note_red = new Note([255, 0, 0], sketchCanvas.width / 2, 300, 1.5 * PI, 2 * PI);
+    note_blue = new Note([0, 0, 255], sketchCanvas.width / 2, 300, 2 * PI, 2.5 * PI);
+    note_yellow = new Note([255, 255, 0], sketchCanvas.width / 2, 300, 2.5 * PI, PI);
     strokeWeight(10);
 
     note_green.show();
@@ -28,13 +30,14 @@ function setup() {
 }
 
 function draw() {
-    translate(width / 2, height / 2);
-    innerCircle();
-    
+    /*innerCircle();*/
 }
 
 function mouseClicked() {
     note_green.glow();
+    note_red.glow();
+    note_blue.glow();
+    note_yellow.glow();
 }
 
 function innerCircle() {
@@ -42,10 +45,10 @@ function innerCircle() {
     textAlign(CENTER);
     fill(0, 0, 0);
     if (sketchCanvas.width > sketchCanvas.height) {
-        ellipse(0, 0, 250);
+        ellipse(sketchCanvas.width / 2, 300, 250);
     }
     else {
-        ellipse(0, 0, sketchCanvas.width * 0.45);
+        ellipse(sketchCanvas.width / 2, 300, sketchCanvas.width * 0.45);
     }
     /*The ,,SIMON" text*/
     fill(255, 255, 255);
@@ -55,5 +58,5 @@ function innerCircle() {
     else {
         textSize(sketchCanvas.width * 0.08);
     }
-    text('SIMON', 0, -30);
+    text('SIMON', width / 2, height / 2 - 30);
 }
