@@ -27,6 +27,14 @@ class Note {
         this.calcEdges();
         var d_tm = dist(this.x, this.y, mouseX, mouseY);
         var d_om = dist(this.xp2, this.yp2, mouseX, mouseY);
+        var sim_rad;
+        
+        if (sketchCanvas.width > sketchCanvas.height) {
+            sim_rad = 250;
+        }
+        else {
+            sim_rad = sketchCanvas.width * 0.45;
+        }
 
         var a1 = dist(mouseX, mouseY, this.x, this.y);
         var b1 = dist(this.xp1, this.yp1, mouseX, mouseY);
@@ -39,16 +47,16 @@ class Note {
         var my_angle1 = (c1 * c1 + a1 * a1 - b1 * b1) / (2 * c1 * a1);
         var my_angle2 = (c2 * c2 + a2 * a2 - b2 * b2) / (2 * c2 * a2);
 
-        var mouse_d1 = degrees(acos(my_angle1)+this.ang1);
-        var mouse_d2 = degrees(acos(my_angle2)+this.ang1);
-        
-        console.log(mouse_d1, mouse_d2, degrees(this.ang1), degrees(this.ang2));
+        var mouse_d1 = degrees(acos(my_angle1) + this.ang1);
+        var mouse_d2 = degrees(acos(my_angle2) + this.ang1);
+
         if (d_tm < this.d / 2 &&
+            a1 > sim_rad / 2 &&
             mouse_d1 > degrees(this.ang1) &&
             mouse_d1 < degrees(this.ang2) &&
             mouse_d2 > degrees(this.ang1) &&
             mouse_d2 < degrees(this.ang2)) {
-            /*this.sound.play();*/
+            this.sound.play();
             /*this.sound.isPlaying();*/
             this.color = 255;
             fill(this.color);

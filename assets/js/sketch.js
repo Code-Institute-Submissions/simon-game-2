@@ -32,10 +32,11 @@ function setup() {
     note_red.show();
     note_blue.show();
     note_yellow.show();
+    innerCircle();
 }
 
 function draw() {
-    /*innerCircle();*/
+    
 }
 
 function mouseClicked() {
