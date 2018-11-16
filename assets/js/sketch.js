@@ -8,6 +8,7 @@ var note_blue = new Note();
 var note_yellow = new Note();
 
 function setup() {
+    var greenColor = color(0, 255, 0);
     /*LOAD SOUNDS*/
     soundFormats('mp3');
     greenNote = loadSound('assets/sound/green.mp3');
@@ -22,21 +23,23 @@ function setup() {
     sketchCanvas.parent("game-screen");
     background(255, 255, 255, 100);
     /*CREATE SIMON NOTES*/
-    note_green = new Note([0, 255, 0, 255], sketchCanvas.width / 2, 300, PI, 1.5 * PI, greenNote);
-    note_red = new Note([255, 0, 0, 255], sketchCanvas.width / 2, 300, 1.5 * PI, 2 * PI, redNote);
-    note_blue = new Note([0, 0, 255, 255], sketchCanvas.width / 2, 300, 2 * PI, 2.5 * PI, blueNote);
-    note_yellow = new Note([255, 255, 0, 255], sketchCanvas.width / 2, 300, 2.5 * PI, 3*PI, yellowNote);
+    note_green = new Note(greenColor, sketchCanvas.width / 2, PI, 1.5 * PI, greenNote);
+    note_red = new Note([255, 0, 0], sketchCanvas.width / 2, 1.5 * PI, 2 * PI, redNote);
+    note_blue = new Note([0, 0, 255], sketchCanvas.width / 2, 2 * PI, 2.5 * PI, blueNote);
+    note_yellow = new Note([255, 255, 0], sketchCanvas.width / 2, 2.5 * PI, 3 * PI, yellowNote);
     strokeWeight(10);
+
     /*SHOW SIMON NOTES*/
     note_green.show();
     note_red.show();
     note_blue.show();
     note_yellow.show();
-    innerCircle();
 }
 
 function draw() {
     
+
+    innerCircle();
 }
 
 function mouseClicked() {
@@ -44,6 +47,12 @@ function mouseClicked() {
     note_red.play();
     note_blue.play();
     note_yellow.play();
+    setTimeout(function() {
+        note_green.colorBack();
+        note_red.colorBack();
+        note_blue.colorBack();
+        note_yellow.colorBack();
+    }, 750);
 }
 
 function innerCircle() {
