@@ -7,7 +7,7 @@ var note_red = new Note();
 var note_blue = new Note();
 var note_yellow = new Note();
 
-function setup() {
+function preload() {
     /*LOAD SOUNDS*/
     soundFormats('mp3');
     greenNote = loadSound('assets/sound/green.mp3');
@@ -16,6 +16,9 @@ function setup() {
     yellowNote = loadSound('assets/sound/yellow.mp3');
     masterVolume(0.3);
     /*CREATE CANVAS*/
+}
+
+function setup() {
     canvas = document.getElementById('game-screen');
     width = canvas.offsetWidth;
     sketchCanvas = createCanvas(width, 600);
@@ -33,6 +36,38 @@ function setup() {
     note_red.show();
     note_blue.show();
     note_yellow.show();
+
+    var waitTime = 1500;
+
+    memoryArr();
+    for (var i = 0; i < memory.length; i++) {
+        switch (memory[i]) {
+            case 1:
+                setTimeout(function() {
+                    note_green.play();
+                    console.log("Green");
+                }, waitTime * i);
+                break;
+            case 2:
+                setTimeout(function() {
+                    note_red.play();
+                    console.log("Red");
+                }, waitTime * i);
+                break;
+            case 3:
+                setTimeout(function() {
+                    note_blue.play();
+                    console.log("Blue");
+                }, waitTime * i);
+                break;
+            case 4:
+                setTimeout(function() {
+                    note_yellow.play();
+                    console.log("Yellow");
+                }, waitTime * i);
+                break;
+        }
+    }
 }
 
 function draw() {
@@ -40,33 +75,8 @@ function draw() {
 }
 
 function mouseClicked() {
-    note_green.play();
-    note_red.play();
-    note_blue.play();
-    note_yellow.play();
-
-    if (note_green.played) {
-        setTimeout(function() {
-            note_green.colorBack();
-            note_green.played = false;
-        }, 750);
-    }
-    if (note_red.played) {
-        setTimeout(function() {
-            note_red.colorBack();
-            note_red.played = false;
-        }, 750);
-    }
-    if (note_blue.played) {
-        setTimeout(function() {
-            note_blue.colorBack();
-            note_blue.played = false;
-        }, 750);
-    }
-    if (note_yellow.played) {
-        setTimeout(function() {
-            note_yellow.colorBack();
-            note_yellow.played = false;
-        }, 750);
-    }
+    note_green.clicked();
+    note_red.clicked();
+    note_blue.clicked();
+    note_yellow.clicked();
 }

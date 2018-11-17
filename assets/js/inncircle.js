@@ -1,3 +1,12 @@
+var memory = [];
+var notesInM = 5;
+
+function memoryArr() {
+    for (var i = 0; i < notesInM; i++) {
+        memory[i] = floor(random(1, 5));
+    }
+}
+
 function innerCircle() {
     /*CENTER OF THE GAME*/
     textAlign(CENTER);
