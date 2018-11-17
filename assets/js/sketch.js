@@ -48,21 +48,25 @@ function mouseClicked() {
     if (note_green.played) {
         setTimeout(function() {
             note_green.colorBack();
+            note_green.played = false;
         }, 750);
     }
     if (note_red.played) {
         setTimeout(function() {
             note_red.colorBack();
+            note_red.played = false;
         }, 750);
     }
     if (note_blue.played) {
         setTimeout(function() {
             note_blue.colorBack();
+            note_blue.played = false;
         }, 750);
     }
     if (note_yellow.played) {
         setTimeout(function() {
             note_yellow.colorBack();
+            note_yellow.played = false;
         }, 750);
     }
 }
