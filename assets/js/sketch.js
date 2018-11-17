@@ -8,7 +8,6 @@ var note_blue = new Note();
 var note_yellow = new Note();
 
 function setup() {
-    var greenColor = color(0, 255, 0);
     /*LOAD SOUNDS*/
     soundFormats('mp3');
     greenNote = loadSound('assets/sound/green.mp3');
@@ -23,7 +22,7 @@ function setup() {
     sketchCanvas.parent("game-screen");
     background(255, 255, 255, 100);
     /*CREATE SIMON NOTES*/
-    note_green = new Note(greenColor, sketchCanvas.width / 2, PI, 1.5 * PI, greenNote);
+    note_green = new Note([0, 255, 0], sketchCanvas.width / 2, PI, 1.5 * PI, greenNote);
     note_red = new Note([255, 0, 0], sketchCanvas.width / 2, 1.5 * PI, 2 * PI, redNote);
     note_blue = new Note([0, 0, 255], sketchCanvas.width / 2, 2 * PI, 2.5 * PI, blueNote);
     note_yellow = new Note([255, 255, 0], sketchCanvas.width / 2, 2.5 * PI, 3 * PI, yellowNote);
@@ -37,8 +36,6 @@ function setup() {
 }
 
 function draw() {
-    
-
     innerCircle();
 }
 
@@ -47,31 +44,25 @@ function mouseClicked() {
     note_red.play();
     note_blue.play();
     note_yellow.play();
-    setTimeout(function() {
-        note_green.colorBack();
-        note_red.colorBack();
-        note_blue.colorBack();
-        note_yellow.colorBack();
-    }, 750);
-}
 
-function innerCircle() {
-    /*CENTER OF THE GAME*/
-    textAlign(CENTER);
-    fill(0, 0, 0);
-    if (sketchCanvas.width > sketchCanvas.height) {
-        ellipse(sketchCanvas.width / 2, 300, 250);
+    if (note_green.played) {
+        setTimeout(function() {
+            note_green.colorBack();
+        }, 750);
     }
-    else {
-        ellipse(sketchCanvas.width / 2, 300, sketchCanvas.width * 0.45);
+    if (note_red.played) {
+        setTimeout(function() {
+            note_red.colorBack();
+        }, 750);
     }
-    /*The ,,SIMON" text*/
-    fill(255, 255, 255);
-    if (sketchCanvas.width > sketchCanvas.height) {
-        textSize(40);
+    if (note_blue.played) {
+        setTimeout(function() {
+            note_blue.colorBack();
+        }, 750);
     }
-    else {
-        textSize(sketchCanvas.width * 0.08);
+    if (note_yellow.played) {
+        setTimeout(function() {
+            note_yellow.colorBack();
+        }, 750);
     }
-    text('SIMON', width / 2, height / 2 - 30);
 }

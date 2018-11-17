@@ -12,6 +12,7 @@ class Note {
         this.xp2;
         this.yp2;
         this.NoteSound = sound;
+        this.played = false;
     }
     show() {
         if (sketchCanvas.width > sketchCanvas.height) {
@@ -57,7 +58,8 @@ class Note {
             mouse_d1 < degrees(this.ang2) &&
             mouse_d2 > degrees(this.ang1) &&
             mouse_d2 < degrees(this.ang2)) {
-            this.NoteSound.play();
+            this.played = true;
+           /* this.NoteSound.play();*/
             this.noteColor = [255, 255, 255];
             fill(this.noteColor);
             arc(this.x, this.y, this.d, this.d, this.ang1, this.ang2, PIE);
