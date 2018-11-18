@@ -1,6 +1,7 @@
 var canvas;
 var width;
 var sketchCanvas;
+var waitTime = 1500;
 
 var note_green = new Note();
 var note_red = new Note();
@@ -36,9 +37,24 @@ function setup() {
     note_red.show();
     note_blue.show();
     note_yellow.show();
+}
 
-    var waitTime = 1500;
+function draw() {
+    innerCircle();
+}
 
+function mouseClicked() {
+    note_green.clicked();
+    note_red.clicked();
+    note_blue.clicked();
+    note_yellow.clicked();
+    
+    if (playBMouseCheck){
+        newGame();
+    }
+}
+
+function newGame() {
     memoryArr();
     for (var i = 0; i < memory.length; i++) {
         switch (memory[i]) {
@@ -68,15 +84,4 @@ function setup() {
                 break;
         }
     }
-}
-
-function draw() {
-    innerCircle();
-}
-
-function mouseClicked() {
-    note_green.clicked();
-    note_red.clicked();
-    note_blue.clicked();
-    note_yellow.clicked();
 }
