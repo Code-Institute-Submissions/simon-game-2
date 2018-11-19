@@ -49,7 +49,7 @@ function mouseClicked() {
     note_blue.clicked();
     note_yellow.clicked();
     
-    if (playBMouseCheck){
+    if (playBMouseCheck()){
         newGame();
     }
 }

@@ -1,7 +1,7 @@
 class Note {
-    constructor(color, x, angle1, angle2, sound) {
-        this.noteColor = color;
-        this.temp_color = color;
+    constructor(gotColor, x, angle1, angle2, sound) {
+        this.noteColor = gotColor;
+        this.temp_color = gotColor;
         this.x = x;
         this.y = 300;
         this.d;
@@ -57,19 +57,19 @@ class Note {
             mouse_d1 < degrees(this.ang2) &&
             mouse_d2 > degrees(this.ang1) &&
             mouse_d2 < degrees(this.ang2)) {
-                this.play();
+            this.play();
         }
     }
     play() {
         var self = this;
         this.played = true;
         this.NoteSound.play();
-        this.noteColor = [255, 255, 255];
-        fill(this.noteColor);
-        arc(this.x, this.y, this.d, this.d, this.ang1, this.ang2, PIE);
+        this.noteColor = [100, 100, 100, 100];
+        console.log(this.noteColor);
+        this.show();
         setTimeout(function() {
             self.colorBack();
-        },750);
+        }, 750);
 
     }
     calcEdges() {
@@ -82,7 +82,7 @@ class Note {
     colorBack() {
         /*Change the color back to their original color*/
         this.noteColor = this.temp_color;
-        fill(this.noteColor);
-        arc(this.x, this.y, this.d, this.d, this.ang1, this.ang2, PIE);
+        console.log(this.noteColor);
+        this.show();
     }
 }
