@@ -62,24 +62,28 @@ function memoryArr() {
                     setTimeout(function() {
                         note_green.play();
                         memory_notes.push(1);
+                        note_playable = false;
                     }, waitTime * i);
                     break;
                 case 2:
                     setTimeout(function() {
                         note_red.play();
                         memory_notes.push(2);
+                        note_playable = false;
                     }, waitTime * i);
                     break;
                 case 3:
                     setTimeout(function() {
                         note_blue.play();
                         memory_notes.push(3);
+                        note_playable = false;
                     }, waitTime * i);
                     break;
                 case 4:
                     setTimeout(function() {
                         note_yellow.play();
                         memory_notes.push(4);
+                        note_playable = false;
                     }, waitTime * i);
                     break;
             }
@@ -106,7 +110,6 @@ function clearArrays() {
 
 function gameOver() {
     clearArrays();
-    console.log("Game Over!");
     game_over = true;
     setTimeout(function() {
         game_over = false;
