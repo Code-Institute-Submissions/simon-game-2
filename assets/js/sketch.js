@@ -1,7 +1,6 @@
 var canvas;
 var width;
 var sketchCanvas;
-var waitTime = 1500;
 
 var note_green = new Note();
 var note_red = new Note();
@@ -30,7 +29,6 @@ function setup() {
     note_red = new Note([255, 0, 0], sketchCanvas.width / 2, 1.5 * PI, 2 * PI, redNote);
     note_blue = new Note([0, 0, 255], sketchCanvas.width / 2, 2 * PI, 2.5 * PI, blueNote);
     note_yellow = new Note([255, 255, 0], sketchCanvas.width / 2, 2.5 * PI, 3 * PI, yellowNote);
-    strokeWeight(10);
 
     /*SHOW SIMON NOTES*/
     note_green.show();
@@ -44,44 +42,29 @@ function draw() {
 }
 
 function mouseClicked() {
+    if (playBMouseCheck()) {
+        newGame();
+    }
+
     note_green.clicked();
     note_red.clicked();
     note_blue.clicked();
     note_yellow.clicked();
-    
-    if (playBMouseCheck()){
-        newGame();
-    }
-}
 
-function newGame() {
-    memoryArr();
-    for (var i = 0; i < memory.length; i++) {
-        switch (memory[i]) {
-            case 1:
-                setTimeout(function() {
-                    note_green.play();
-                    console.log("Green");
-                }, waitTime * i);
-                break;
-            case 2:
-                setTimeout(function() {
-                    note_red.play();
-                    console.log("Red");
-                }, waitTime * i);
-                break;
-            case 3:
-                setTimeout(function() {
-                    note_blue.play();
-                    console.log("Blue");
-                }, waitTime * i);
-                break;
-            case 4:
-                setTimeout(function() {
-                    note_yellow.play();
-                    console.log("Yellow");
-                }, waitTime * i);
-                break;
-        }
+    if (note_green.clicked()) {
+        clicked_notes.push(1);
+        countScore();
+    }
+    else if (note_red.clicked()) {
+        clicked_notes.push(2);
+        countScore();
+    }
+    else if (note_blue.clicked()) {
+        clicked_notes.push(3);
+        countScore();
+    }
+    else if (note_yellow.clicked()) {
+        clicked_notes.push(4);
+        countScore();
     }
 }

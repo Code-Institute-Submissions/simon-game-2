@@ -22,6 +22,7 @@ class Note {
         else {
             this.d = sketchCanvas.width * 0.8;
         }
+        strokeWeight(8);
         fill(this.noteColor);
         arc(this.x, this.y, this.d, this.d, this.ang1, this.ang2, PIE);
     }
@@ -56,16 +57,17 @@ class Note {
             mouse_d1 > degrees(this.ang1) &&
             mouse_d1 < degrees(this.ang2) &&
             mouse_d2 > degrees(this.ang1) &&
-            mouse_d2 < degrees(this.ang2)) {
+            mouse_d2 < degrees(this.ang2) &&
+            (note_playable)){
             this.play();
+            return true;
         }
     }
     play() {
         var self = this;
         this.played = true;
         this.NoteSound.play();
-        this.noteColor = [100, 100, 100, 100];
-        console.log(this.noteColor);
+        this.noteColor = [0, 0, 0, 100];
         this.show();
         setTimeout(function() {
             self.colorBack();
@@ -82,7 +84,6 @@ class Note {
     colorBack() {
         /*Change the color back to their original color*/
         this.noteColor = this.temp_color;
-        console.log(this.noteColor);
         this.show();
     }
 }
