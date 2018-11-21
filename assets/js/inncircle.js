@@ -54,38 +54,40 @@ function innerCircle() {
 }
 
 function memoryArr() {
-    memory.push(floor(random(1, 5)));
-    for (var i = 0; i < memory.length; i++) {
-        switch (memory[i]) {
-            case 1:
-                setTimeout(function() {
-                    note_green.play();
-                    memory_notes.push(1);
-                }, waitTime * i);
-                break;
-            case 2:
-                setTimeout(function() {
-                    note_red.play();
-                    memory_notes.push(2);
-                }, waitTime * i);
-                break;
-            case 3:
-                setTimeout(function() {
-                    note_blue.play();
-                    memory_notes.push(3);
-                }, waitTime * i);
-                break;
-            case 4:
-                setTimeout(function() {
-                    note_yellow.play();
-                    memory_notes.push(4);
-                }, waitTime * i);
-                break;
+    if (game_over == false) {
+        memory.push(floor(random(1, 5)));
+        for (var i = 0; i < memory.length; i++) {
+            switch (memory[i]) {
+                case 1:
+                    setTimeout(function() {
+                        note_green.play();
+                        memory_notes.push(1);
+                    }, waitTime * i);
+                    break;
+                case 2:
+                    setTimeout(function() {
+                        note_red.play();
+                        memory_notes.push(2);
+                    }, waitTime * i);
+                    break;
+                case 3:
+                    setTimeout(function() {
+                        note_blue.play();
+                        memory_notes.push(3);
+                    }, waitTime * i);
+                    break;
+                case 4:
+                    setTimeout(function() {
+                        note_yellow.play();
+                        memory_notes.push(4);
+                    }, waitTime * i);
+                    break;
+            }
         }
+        setTimeout(function() {
+            note_playable = true;
+        }, waitTime * memory.length);
     }
-    setTimeout(function() {
-        note_playable = true;
-    }, waitTime * memory.length);
 }
 
 
