@@ -1,5 +1,6 @@
 var canvas;
 var width;
+var height;
 var sketchCanvas;
 
 var note_green = new Note();
@@ -21,14 +22,15 @@ function preload() {
 function setup() {
     canvas = document.getElementById('game-screen');
     width = canvas.offsetWidth;
-    sketchCanvas = createCanvas(width, 600);
+    height = 500;
+    sketchCanvas = createCanvas(width, height);
     sketchCanvas.parent("game-screen");
     background(255, 255, 255, 100);
     /*CREATE SIMON NOTES*/
-    note_green = new Note([0, 255, 0], sketchCanvas.width / 2, PI, 1.5 * PI, greenNote);
-    note_red = new Note([255, 0, 0], sketchCanvas.width / 2, 1.5 * PI, 2 * PI, redNote);
-    note_blue = new Note([0, 0, 255], sketchCanvas.width / 2, 2 * PI, 2.5 * PI, blueNote);
-    note_yellow = new Note([255, 255, 0], sketchCanvas.width / 2, 2.5 * PI, 3 * PI, yellowNote);
+    note_green = new Note([0, 255, 0], sketchCanvas.width / 2, height / 2, PI, 1.5 * PI, greenNote);
+    note_red = new Note([255, 0, 0], sketchCanvas.width / 2, height / 2, 1.5 * PI, 2 * PI, redNote);
+    note_blue = new Note([0, 0, 255], sketchCanvas.width / 2, height / 2, 2 * PI, 2.5 * PI, blueNote);
+    note_yellow = new Note([255, 255, 0], sketchCanvas.width / 2, height / 2, 2.5 * PI, 3 * PI, yellowNote);
 
     /*SHOW SIMON NOTES*/
     showNotes();

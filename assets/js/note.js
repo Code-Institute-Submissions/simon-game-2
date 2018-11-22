@@ -1,9 +1,9 @@
 class Note {
-    constructor(gotColor, x, angle1, angle2, sound) {
+    constructor(gotColor, x, y, angle1, angle2, sound) {
         this.noteColor = gotColor;
         this.temp_color = gotColor;
         this.x = x;
-        this.y = 300;
+        this.y = y;
         this.d;
         this.ang1 = angle1;
         this.ang2 = angle2;
@@ -18,11 +18,13 @@ class Note {
         /*The note's size changes width the window if resized*/
         if (sketchCanvas.width > sketchCanvas.height) {
             this.d = 400;
+            strokeWeight(8);
         }
         else {
             this.d = sketchCanvas.width * 0.8;
+            strokeWeight(4);
         }
-        strokeWeight(8);
+        
         fill(this.noteColor);
         arc(this.x, this.y, this.d, this.d, this.ang1, this.ang2, PIE);
     }
@@ -58,7 +60,7 @@ class Note {
             mouse_d1 < degrees(this.ang2) &&
             mouse_d2 > degrees(this.ang1) &&
             mouse_d2 < degrees(this.ang2) &&
-            (note_playable)){
+            (note_playable)) {
             this.play();
             return true;
         }

@@ -17,35 +17,40 @@ function innerCircle() {
 
     fill(24, 24, 24);
     if (sketchCanvas.width > sketchCanvas.height) {
-        ellipse(sketchCanvas.width / 2, 300, 250);
+        ellipse(sketchCanvas.width / 2, height / 2, 250);
         textSize(40);
         play_d = 65;
         shift_play_x = 60;
         shift_play_y = 30;
     }
     else if (sketchCanvas.width < sketchCanvas.height && sketchCanvas.width > 0.7 * sketchCanvas.height) {
-        ellipse(sketchCanvas.width / 2, 300, sketchCanvas.width * 0.45);
+        ellipse(sketchCanvas.width / 2, height / 2, sketchCanvas.width * 0.45);
         textSize(sketchCanvas.width * 0.08);
         play_d = sketchCanvas.width * 0.13;
         shift_play_x = 45;
         shift_play_y = 30;
+        strokeWeight(4);
     }
     else if (sketchCanvas.width < 0.7 * sketchCanvas.height) {
-        ellipse(sketchCanvas.width / 2, 300, sketchCanvas.width * 0.45);
+        ellipse(sketchCanvas.width / 2, height / 2, sketchCanvas.width * 0.45);
         textSize(sketchCanvas.width * 0.07);
         play_d = sketchCanvas.width * 0.12;
         shift_play_x = 26;
         shift_play_y = 21;
+        strokeWeight(2);
     }
     fill(255, 255, 255);
     text('SIMON', width / 2, height / 2 - 35);
     playBMouseCheck();
     ellipse(sketchCanvas.width / 2 + shift_play_x, height / 2 + shift_play_y, play_d);
+    
     fill(10, 10, 10);
     rectMode(CENTER);
     rect(sketchCanvas.width / 2 - shift_play_x, height / 2 + shift_play_y, play_d, play_d);
+    
     fill(150, 0, 0);
     text(score, sketchCanvas.width / 2 - shift_play_x, height / 2 + 1.3 * shift_play_y);
+    
     if (game_over) {
         fill(0, 0, 0);
         rect(sketchCanvas.width / 2, height / 2, 4 * play_d, 4 * play_d);
