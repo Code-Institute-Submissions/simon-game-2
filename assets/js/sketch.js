@@ -14,7 +14,7 @@ function preload() {
     redNote = loadSound('assets/sound/red.mp3');
     blueNote = loadSound('assets/sound/blue.mp3');
     yellowNote = loadSound('assets/sound/yellow.mp3');
-    masterVolume(0.3);
+    masterVolume(0.2);
     /*CREATE CANVAS*/
 }
 
@@ -31,10 +31,7 @@ function setup() {
     note_yellow = new Note([255, 255, 0], sketchCanvas.width / 2, 2.5 * PI, 3 * PI, yellowNote);
 
     /*SHOW SIMON NOTES*/
-    note_green.show();
-    note_red.show();
-    note_blue.show();
-    note_yellow.show();
+    showNotes();
 }
 
 function draw() {
@@ -42,14 +39,11 @@ function draw() {
 }
 
 function mouseClicked() {
-    if (playBMouseCheck()) {
+    if (playBMouseCheck() && can_start_new == true) {
         newGame();
     }
 
-    note_green.clicked();
-    note_red.clicked();
-    note_blue.clicked();
-    note_yellow.clicked();
+    checkIfNotesClicked();
 
     if (note_green.clicked()) {
         clicked_notes.push(1);
@@ -67,4 +61,18 @@ function mouseClicked() {
         clicked_notes.push(4);
         countScore();
     }
+}
+
+function showNotes() {
+    note_green.show();
+    note_red.show();
+    note_blue.show();
+    note_yellow.show();
+}
+
+function checkIfNotesClicked() {
+    note_green.clicked();
+    note_red.clicked();
+    note_blue.clicked();
+    note_yellow.clicked();
 }

@@ -1,5 +1,6 @@
 var note_playable = false;
 var game_over = false;
+var can_start_new = true;
 var memory = [];
 var memory_notes = [];
 var clicked_notes = [];
@@ -54,75 +55,74 @@ function innerCircle() {
 }
 
 function memoryArr() {
-    if (game_over == false) {
-        memory.push(floor(random(1, 5)));
-        for (var i = 0; i < memory.length; i++) {
-            switch (memory[i]) {
-                case 1:
-                    setTimeout(function() {
-                        note_green.play();
-                        memory_notes.push(1);
-                        note_playable = false;
-                    }, waitTime * i);
-                    break;
-                case 2:
-                    setTimeout(function() {
-                        note_red.play();
-                        memory_notes.push(2);
-                        note_playable = false;
-                    }, waitTime * i);
-                    break;
-                case 3:
-                    setTimeout(function() {
-                        note_blue.play();
-                        memory_notes.push(3);
-                        note_playable = false;
-                    }, waitTime * i);
-                    break;
-                case 4:
-                    setTimeout(function() {
-                        note_yellow.play();
-                        memory_notes.push(4);
-                        note_playable = false;
-                    }, waitTime * i);
-                    break;
-            }
-        }
-        setTimeout(function() {
-            note_playable = true;
-        }, waitTime * memory.length);
+    if (game_over) {
+        return;
     }
+    memory.push(floor(random(1, 5)));
+    for (var i = 0; i < memory.length; i++) {
+        can_start_new = false;
+        switch (memory[i]) {
+            case 1:
+                setTimeout(function() {
+                    note_green.play();
+                    memory_notes.push(1);
+                }, waitTime * i);
+                break;
+            case 2:
+                setTimeout(function() {
+                    note_red.play();
+                    memory_notes.push(2);
+                }, waitTime * i);
+                break;
+            case 3:
+                setTimeout(function() {
+                    note_blue.play();
+                    memory_notes.push(3);
+                }, waitTime * i);
+                break;
+            case 4:
+                setTimeout(function() {
+                    note_yellow.play();
+                    memory_notes.push(4);
+                }, waitTime * i);
+                break;
+        }
+    }
+    setTimeout(function() {
+        note_playable = true;
+        can_start_new = true;
+    }, waitTime * memory.length);
 }
 
 
 function newGame() {
-    clearArrays();
+    clearThem();
     memoryArr();
 }
 
-function clearArrays() {
+function clearThem() {
     score = 0;
     memory.length = 0;
     clicked_notes.length = 0;
     memory_notes.length = 0;
     note_playable = false;
+    can_start_new = true;
 }
 
 function gameOver() {
-    clearArrays();
+    clearThem();
     game_over = true;
     setTimeout(function() {
         game_over = false;
-        note_green.show();
-        note_red.show();
-        note_blue.show();
-        note_yellow.show();
+        showNotes();
     }, 2500);
 }
 
 function countScore() {
     if (equalArrays(memory_notes, clicked_notes)) {
         if (memory_notes.length == clicked_notes.length) {
+            note_playable = false;
+            can_start_new = false;
             score++;
             setTimeout(function() {
                 memoryArr();
@@ -145,7 +145,7 @@ function equalArrays(arr1, arr2) {
 
 function playBMouseCheck() {
     dist_mp = dist(mouseX, mouseY, sketchCanvas.width / 2 + shift_play_x, height / 2 + shift_play_y);
-    if (dist_mp < play_d / 2) {
+    if (dist_mp < play_d / 2 && can_start_new == true) {
         fill(0, 255, 0, 100);
         return true;
     }
