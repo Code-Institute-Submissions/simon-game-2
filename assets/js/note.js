@@ -1,3 +1,4 @@
+/*Create a "Note" class for drawing 4 of them*/
 class Note {
     constructor(gotColor, x, y, angle1, angle2, sound) {
         this.noteColor = gotColor;
@@ -16,15 +17,19 @@ class Note {
     }
     show() {
         /*The note's size changes width the window if resized*/
-        if (sketchCanvas.width > sketchCanvas.height) {
+        if (width > height) {
             this.d = 400;
-            strokeWeight(8);
+            strokeWeight(6);
         }
-        else {
-            this.d = sketchCanvas.width * 0.8;
+        else if (width < height && width > 0.7 * height) {
+            this.d = width * 0.8;
             strokeWeight(4);
         }
-        
+        else if (width < 0.7 * height) {
+            this.d = width * 0.7;
+            strokeWeight(2);
+        }
+
         fill(this.noteColor);
         arc(this.x, this.y, this.d, this.d, this.ang1, this.ang2, PIE);
     }
@@ -33,11 +38,11 @@ class Note {
         var sim_rad;
 
         /* Calculate the radius of the circle(note)*/
-        if (sketchCanvas.width > sketchCanvas.height) {
+        if (width > height) {
             sim_rad = 250;
         }
         else {
-            sim_rad = sketchCanvas.width * 0.45;
+            sim_rad = width * 0.45;
         }
         /* Calculate the distances of mouse, edges, center*/
         var d_tm = dist(this.x, this.y, mouseX, mouseY);
@@ -66,6 +71,7 @@ class Note {
         }
     }
     play() {
+        /*Change note's color, and play it's sound, then change color back*/
         var self = this;
         this.played = true;
         this.NoteSound.play();
