@@ -165,11 +165,11 @@ function equalArrays(arr1, arr2) {
 /*Check if notes are playing from memory or it's the player turn*/
 function playerTurn() {
     if (can_start_new == true) {
-        fill(233, 0, 0);
+        fill(0, 200, 00);
         ellipse(center.x, center.y - 15, play_d * 0.3);
     }
     else {
-        fill(233, 0, 0, 100);
+        fill(200, 0, 0);
         ellipse(center.x, center.y - 15, play_d * 0.3);
     }
 }
