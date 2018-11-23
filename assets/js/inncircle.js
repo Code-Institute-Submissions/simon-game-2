@@ -13,7 +13,7 @@ var play_d;
 var dist_mp;
 
 /*Create and draw the "innerCircle"
-   Inner Circle, Simon text, new game button,
+   Inner Circle, Simon text, "Your Turn" circle, new game button,
    rectangle for score showing and "Game Over" rectangle*/
 function innerCircle() {
     textAlign(CENTER);
@@ -47,7 +47,9 @@ function innerCircle() {
     ellipse(center.x, center.y, innd);
     //"SIMON" text
     fill(255, 255, 255);
-    text('SIMON', center.x, center.y - 35);
+    text('SIMON', center.x, center.y - 30);
+    //"Player's Turn" function's circle
+    playerTurn();
     //"New Game" button
     playBMouseCheck();
     ellipse(center.x + shift_play_x, center.y + shift_play_y, play_d);
@@ -61,7 +63,7 @@ function innerCircle() {
     //"Game Over" rectangle
     if (game_over) {
         fill(0, 0, 0);
-        rect(center.x, center.y, 4 * play_d, 4 * play_d);
+        rect(center.x, center.y, 4 * play_d, 3.5 * play_d);
         fill(255, 255, 255);
         text('Game Over!', center.x, center.y);
     }
@@ -159,6 +161,17 @@ function equalArrays(arr1, arr2) {
             return false;
     }
     return true;
+}
+/*Check if notes are playing from memory or it's the player turn*/
+function playerTurn() {
+    if (can_start_new == true) {
+        fill(233, 0, 0);
+        ellipse(center.x, center.y - 15, play_d * 0.3);
+    }
+    else {
+        fill(233, 0, 0, 100);
+        ellipse(center.x, center.y - 15, play_d * 0.3);
+    }
 }
 /*Check if the mouse on the "New Game" button.
 Change the color of it and give back "true" or "false"*/
