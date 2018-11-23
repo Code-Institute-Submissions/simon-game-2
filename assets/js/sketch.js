@@ -23,7 +23,7 @@ function setup() {
     /*CREATE CANVAS*/
     canvas = document.getElementById('game-screen');
     width = canvas.offsetWidth;
-    height = 500;
+    height = 450;
     sketchCanvas = createCanvas(width, height);
     sketchCanvas.parent("game-screen");
     center = createVector(width / 2, height / 2);

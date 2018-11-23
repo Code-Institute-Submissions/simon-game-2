@@ -26,20 +26,20 @@ function innerCircle() {
         shift_play_y = 30;
         strokeWeight(6);
     }
-    else if (width < height && width > 0.7 * height) {
+    else if (width < height && width > 0.75 * height) {
         innd = width * 0.45;
         textSize(width * 0.08);
         play_d = width * 0.13;
-        shift_play_x = 45;
-        shift_play_y = 30;
+        shift_play_x = 40;
+        shift_play_y = 20;
         strokeWeight(4);
     }
-    else if (width < 0.7 * height) {
+    else if (width < 0.75 * height) {
         innd = width * 0.45;
         textSize(width * 0.07);
-        play_d = width * 0.12;
-        shift_play_x = 26;
-        shift_play_y = 21;
+        play_d = width * 0.13;
+        shift_play_x = 25;
+        shift_play_y = 15;
         strokeWeight(2);
     }
     //Inner circle
