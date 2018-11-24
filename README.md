@@ -66,8 +66,8 @@ then you should open the "index.html" file.
 
 ### Media
 
-    The sounds used in this project were obtained from [TimelessReader1](https://www.youtube.com/channel/UCWLXnsQdFoLTmsHOyG_Qwkw) on youtube.
+The sounds used in this project were obtained from [TimelessReader1](https://www.youtube.com/channel/UCWLXnsQdFoLTmsHOyG_Qwkw) on youtube.
 
 ### Acknowledgements
 
-    I received inspiration for this project from Code Institute, from [David Shiffman](https://www.youtube.com/user/shiffman) on youtube and from [Wikipedia](https://en.wikipedia.org/wiki/Simon_(game)).
+I received inspiration for this project from Code Institute, from [David Shiffman](https://www.youtube.com/user/shiffman) on youtube and from [Wikipedia](https://en.wikipedia.org/wiki/Simon_(game)).
