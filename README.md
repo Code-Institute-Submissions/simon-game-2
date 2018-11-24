@@ -44,12 +44,13 @@ Existing Features
 I tested the project on PC and mobile phone.
 * PC: browser Mozilla Firefox, Microsoft Edge and Google Chrome.
 * Mobile: Huawei P20
-
+```
     New Game:
         Try to start a new game while the previous game's notes are under playing you are not able to do it
     Play Notes:
         Try to play notes while the mouse in not on them you are not able to do it
         Try to click on notes and playing them while the notes from memory are under playing you are not able to do it
+```
 
 I should mention I discovered a bug on Microsoft Edge when I'm resizing the windows the drawing of the game is poor, pixelated and notes and the inner circle are fading each other.
 An other bigger bug is in Internet Explorer the whole project won't load in.
@@ -65,8 +66,8 @@ then you should open the "index.html" file.
 
 ### Media
 
-The sounds used in this project were obtained from [TimelessReader1](https://www.youtube.com/channel/UCWLXnsQdFoLTmsHOyG_Qwkw) on youtube.
+    The sounds used in this project were obtained from [TimelessReader1](https://www.youtube.com/channel/UCWLXnsQdFoLTmsHOyG_Qwkw) on youtube.
 
 ### Acknowledgements
 
-I received inspiration for this project from Code Institute, from [David Shiffman](https://www.youtube.com/user/shiffman) on youtube and from [Wikipedia](https://en.wikipedia.org/wiki/Simon_(game).
+    I received inspiration for this project from Code Institute, from [David Shiffman](https://www.youtube.com/user/shiffman) on youtube and from [Wikipedia](https://en.wikipedia.org/wiki/Simon_(game)).
