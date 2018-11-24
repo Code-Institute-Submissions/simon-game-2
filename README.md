@@ -20,7 +20,6 @@ Once the user fails the game is over.
 
 ## Features
 
-In this section, you should go over the different parts of your project, and describe each in a sentence or so.
 Existing Features
 
     New Game - allows users to start a new game, by having them click on the ,,New Game" button (Green circle)
@@ -43,8 +42,8 @@ Existing Features
 ## Testing
 
 I tested the project on PC and mobile phone.
-PC: browser Mozilla Firefox, Microsoft Edge and Google Chrome.
-Mobile: Huawei P20
+* PC: browser Mozilla Firefox, Microsoft Edge and Google Chrome.
+* Mobile: Huawei P20
 
     New Game:
         Try to start a new game while the previous game's notes are under playing you are not able to do it
@@ -59,7 +58,6 @@ An other bigger bug is in Internet Explorer the whole project won't load in.
 
 This project was created on [C9.IO](https://c9.io/) and was deployed to [GitHub](https://github.com/).
 
-In addition, if it is not obvious, you should also describe how to run your code locally.
 If you would like to run this code locally, you should download all the files and put them into the same folder,
 then you should open the "index.html" file.
 
@@ -67,8 +65,8 @@ then you should open the "index.html" file.
 
 ### Media
 
-    The sounds used in this project were obtained from [TimelessReader1](https://www.youtube.com/channel/UCWLXnsQdFoLTmsHOyG_Qwkw) on youtube.
+The sounds used in this project were obtained from [TimelessReader1](https://www.youtube.com/channel/UCWLXnsQdFoLTmsHOyG_Qwkw) on youtube.
 
 ### Acknowledgements
 
-    I received inspiration for this project from Code Institute, from [David Shiffman](https://www.youtube.com/user/shiffman) on youtube and from [Wikipedia](https://en.wikipedia.org/wiki/Simon_(game).
+I received inspiration for this project from Code Institute, from [David Shiffman](https://www.youtube.com/user/shiffman) on youtube and from [Wikipedia](https://en.wikipedia.org/wiki/Simon_(game).
