@@ -13,7 +13,6 @@ class Note {
         this.xp2;
         this.yp2;
         this.NoteSound = sound;
-        this.played = false;
     }
     show() {
         /*The note's size changes width the window if resized*/
@@ -73,7 +72,6 @@ class Note {
     play() {
         /*Change note's color, and play it's sound, then change color back*/
         var self = this;
-        this.played = true;
         this.NoteSound.play();
         this.noteColor = [0, 0, 0, 100];
         this.show();
