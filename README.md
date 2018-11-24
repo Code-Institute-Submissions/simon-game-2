@@ -71,4 +71,4 @@ then you should open the "index.html" file.
 
 ### Acknowledgements
 
-    I received inspiration for this project from Code Institute and from [David Shiffman](https://www.youtube.com/user/shiffman) on youtube.
+    I received inspiration for this project from Code Institute, from [David Shiffman](https://www.youtube.com/user/shiffman) on youtube and from [Wikipedia](https://en.wikipedia.org/wiki/Simon_(game).
