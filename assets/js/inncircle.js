@@ -8,7 +8,7 @@ var score = 0;
 var waitTime = 1500;
 var shift_play_x;
 var shift_play_y;
-var innd;
+var inner_diameter;
 var play_d;
 var dist_mp;
 
@@ -16,35 +16,29 @@ var dist_mp;
    Inner Circle, Simon text, "Your Turn" circle, new game button,
    rectangle for score showing and "Game Over" rectangle*/
 function innerCircle() {
+    function changeSizes(inn_d, text_size, play_size, shift_x, shift_y, weight) {
+        inner_diameter = inn_d;
+        textSize(text_size);
+        play_d = play_size;
+        shift_play_x = shift_x;
+        shift_play_y = shift_y;
+        strokeWeight(weight);
+    }
     textAlign(CENTER);
     /*Inner circle changes if window is resized*/
     if (width > height) {
-        innd = 250;
-        textSize(40);
-        play_d = 65;
-        shift_play_x = 60;
-        shift_play_y = 30;
-        strokeWeight(6);
+        changeSizes(250, 40, 65, 60, 30, 6);
     }
     else if (width < height && width > 0.75 * height) {
-        innd = width * 0.45;
-        textSize(width * 0.08);
-        play_d = width * 0.13;
-        shift_play_x = 40;
-        shift_play_y = 20;
-        strokeWeight(4);
+        changeSizes(width * 0.45, width * 0.08, width * 0.13, 40, 20, 4);
     }
     else if (width < 0.75 * height) {
-        innd = width * 0.45;
-        textSize(width * 0.07);
-        play_d = width * 0.13;
-        shift_play_x = 25;
-        shift_play_y = 15;
-        strokeWeight(2);
+        changeSizes(width * 0.45, width * 0.07, width * 0.13, 25, 15, 2);
     }
+
     //Inner circle
     fill(24, 24, 24);
-    ellipse(center.x, center.y, innd);
+    ellipse(center.x, center.y, inner_diameter);
     //"SIMON" text
     fill(255, 255, 255);
     text('SIMON', center.x, center.y - 30);
