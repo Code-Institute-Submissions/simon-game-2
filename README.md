@@ -39,18 +39,6 @@ Existing Features
         P5JS libary - https://p5js.org/
             The project uses P5JS to create the whole game. 
 
-## Testing
-
-I tested the project on PC and mobile phone.
-* PC: browser Mozilla Firefox, Microsoft Edge and Google Chrome.
-* Mobile: Huawei P20
-```
-    New Game:
-        Try to start a new game while the previous game's notes are under playing you are not able to do it
-    Play Notes:
-        Try to play notes while the mouse in not on them you are not able to do it
-        Try to click on notes and playing them while the notes from memory are under playing you are not able to do it
-```
 
 I should mention I discovered a bug on Microsoft Edge when I'm resizing the windows the drawing of the game is poor, pixelated and notes and the inner circle are fading each other.
 An other bigger bug is in Internet Explorer the whole project won't load in.
